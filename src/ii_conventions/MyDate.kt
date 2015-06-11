@@ -14,8 +14,8 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
 }
 
 enum class TimeInterval {
-    DAY
-    WEEK
+    DAY,
+    WEEK,
     YEAR
 }
 
