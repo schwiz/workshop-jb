@@ -4,6 +4,7 @@ import kotlin.properties.ReadWriteProperty
 import util.TODO
 import java.util.Calendar
 import ii_conventions.MyDate
+import kotlin.properties.Delegates
 
 fun todoTask21() = TODO(
     """
@@ -26,9 +27,9 @@ class D {
 }
 
 class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
-    var timeInMillis: Long? = null
+    var timeInMillis: Long by Delegates.notNull()
 
-    override fun get(thisRef: R, desc: PropertyMetadata): MyDate = timeInMillis!!.toDate()
+    override fun get(thisRef: R, desc: PropertyMetadata): MyDate = timeInMillis.toDate()
     override fun set(thisRef: R, desc: PropertyMetadata, value: MyDate) { timeInMillis = value.toMillis() }
 }
 
